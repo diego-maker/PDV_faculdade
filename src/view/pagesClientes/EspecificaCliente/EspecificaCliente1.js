@@ -4,6 +4,11 @@ import { AiOutlineArrowDown } from 'react-icons/ai';
 import { Col, Nav, NavItem, NavLink, Row, TabContent, TabPane, Input } from 'reactstrap';
 import classnames from 'classnames';
 
+// OLHA SINCERAMENTE EU NÃO SEI NEM POR ONDE COMEÇAR, 
+// EU ESTAVA PENSANDO EM IMPLEMENTAR UM OUTRO ESTILO E OUTRO FORMATO
+// NO CASO SERIA DE NOTA FISCAL NF-E, SÓ QUE A FACULDADE / TRABALJO NÃO ME PERMITIU TEMPO DISPONIVEL PARA ISSO
+// ENTÃO EU PAREI... DEIXEI AKI DISPONIVEL CASO VC QUERIA BRINCAR COM ALGUMA COISA... 
+// MAS CREIO EU QUE ESTA 40% PRONTO, NÃO ESPERE MUITA COISA NÃO KKKK
 
 export default function EspecificaCliente1(props) {
     return (

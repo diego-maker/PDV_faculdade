@@ -6,6 +6,11 @@ import { GiMoneyStack } from 'react-icons/gi';
 import { ImFilter, ImPrinter } from 'react-icons/im';
 import { Col, Input, Nav, NavItem, NavLink, Row, TabContent, Table, TabPane } from 'reactstrap';
 import classnames  from 'classnames'
+// OLHA SINCERAMENTE EU NÃO SEI NEM POR ONDE COMEÇAR, 
+// EU ESTAVA PENSANDO EM IMPLEMENTAR UM OUTRO ESTILO E OUTRO FORMATO
+// NO CASO SERIA DE NOTA FISCAL NF-E, SÓ QUE A FACULDADE / TRABALJO NÃO ME PERMITIU TEMPO DISPONIVEL PARA ISSO
+// ENTÃO EU PAREI... DEIXEI AKI DISPONIVEL CASO VC QUERIA BRINCAR COM ALGUMA COISA... 
+// MAS CREIO EU QUE ESTA 40% PRONTO, NÃO ESPERE MUITA COISA NÃO KKKK
 
 export default function MovFinaceira( props) {
     return (

@@ -16,8 +16,8 @@ export default function Login() {
     const history = useHistory();
 
 
-    async function handlerSubmitLogin(e) {
-        
+    async function handlerSubmitLogin(e) {// eu sei não validei pela minha API... tambem cara 500 PROVAS PRA FAZER SEM TEMPO IRMAO
+
         e.preventDefault();
         
         if(email === "adm@adm" && senha === "adm"){

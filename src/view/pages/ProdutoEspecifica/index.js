@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css'
 import Menu from '../../componets/menu'
 import { Jumbotron, Input, Button, PopoverHeader, PopoverBody, UncontrolledPopover } from 'reactstrap';
-import { Link, useHistory } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -39,7 +39,7 @@ export default function ProdutoEspecifica() {
     const [status, setStatus] = useState('A')
     const history = useHistory();
 
-    const origemProduto = [
+    const origemProduto = [ //QUER DAR UM MAP??? OLHA AI A CONSTANTE BONITONA PRA VC USAR 
         { name: '' },
         { id: 0, name: '0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8' },
         { id: 1, name: '1 - Estrangeira - Importação direta, exceto a indicada no código 6' },

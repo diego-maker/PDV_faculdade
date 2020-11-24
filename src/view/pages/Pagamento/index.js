@@ -48,7 +48,7 @@ export default function Pagamento(props) {
        await element.lastElementChild.focus();
     }
 
-    async function coletarDados(){
+    async function coletarDados(){ // Aki eu vou implementar um get da minha API, para retornar as formas de pagamento disponiveis...
         
         let dados = await axios(`http://18.189.30.2:5000/v1/FormaPagamento`, {
             method: 'GET'
@@ -62,7 +62,7 @@ export default function Pagamento(props) {
         setDados1(obterdados[0]);
     }
 
-    async function criarPedido() {
+    async function criarPedido() { //Cria um pedido nota, não funciona no momento....
         
         let sub = localStorage.getItem('subTotal').substring(3).replace(',', '.');
         let sub2 = localStorage.getItem('subTotal').substring(3).replace(',', '.');
@@ -94,7 +94,7 @@ export default function Pagamento(props) {
 
         }
     }
-    async function salvarItens() {
+    async function salvarItens() {// Esse função serve para salvar itens na nota... no momento não implementei a nota, quem sabe futuramente rsrsrs
         
         let pedidos = props.location.state;
         let cont = 0;
@@ -129,13 +129,15 @@ export default function Pagamento(props) {
             cont++;
         }
         nfce();
-
     }
+
     async function setarPagamento(valor) { // Aki estou fazendo algumas validações de pagamento... exemplo se for maior o pagamento retorne troco --->
         
         let pgto1 = Number(valor.substring(3).replace(',', '.'));
         let total1 = Number(pagar.substring(3).replace(',', '.'));
         
+
+        // Se o pagamento for Maior <<<<<
         if (Number(pgto1) > total1) {
             let verifica = localStorage.getItem('subTotal');
             if (verifica === "0") {
@@ -160,7 +162,7 @@ export default function Pagamento(props) {
             toggle2(false);
         }
 
-
+        // Se o pagamento for igual <<<<
         if (Number(pgto1) === Number(total1)) {
 
 
@@ -180,7 +182,7 @@ export default function Pagamento(props) {
 
 
         }
-
+        //Se o pagamento for menor <<<<
         if (Number(pgto1) < total1) {
             let verifica = localStorage.getItem('subTotal');
             if (verifica === "0") {
@@ -202,7 +204,8 @@ export default function Pagamento(props) {
         }
 
     }
-    async function nfce() {
+  
+    async function nfce() { // aki eu posso utilizar ainda... quem sabe futuramente eu implemento uma emissão de verdade kkk
         
        
         let salvardados = ""
@@ -384,7 +387,7 @@ export default function Pagamento(props) {
 
        
     }
-    async function handlerFormDescricao(e) {
+    async function handlerFormDescricao(e) { // evento para não permitir a tecla tab.... um dia isso vai me servir de alguma maneira kkkk
         debugger
         e.preventDefault();
         if (focando === true) {
