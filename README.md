@@ -15,7 +15,7 @@
 
 | dependência | README |
 | ------ | ------ |
-| material ui | [https://material-ui.com/pt/][PlDb] |
+| material ui | https://material-ui.com/pt/ |
 | GitHub | [plugins/github/README.md][PlGh] |
 | Google Drive | [plugins/googledrive/README.md][PlGd] |
 | OneDrive | [plugins/onedrive/README.md][PlOd] |
