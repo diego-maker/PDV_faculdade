@@ -10,3 +10,14 @@
   - Routes
   - useEffects
          <h5>Todos são uma delicinha de implementar rsrsr<h5>
+
+# Algumas Dependências não citadas que pode-se utilizar posteriormente.
+
+| dependência | README |
+| ------ | ------ |
+| material ui | [https://material-ui.com/pt/][PlDb] |
+| GitHub | [plugins/github/README.md][PlGh] |
+| Google Drive | [plugins/googledrive/README.md][PlGd] |
+| OneDrive | [plugins/onedrive/README.md][PlOd] |
+| Medium | [plugins/medium/README.md][PlMe] |
+| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
