@@ -12,4 +12,4 @@ function App() {
 
 export default App;
 
-//developed by Diego && victor
+//developed by Diego 
