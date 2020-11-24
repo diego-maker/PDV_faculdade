@@ -16,8 +16,8 @@
 | dependência | README |
 | ------ | ------ |
 | material ui | https://material-ui.com/pt/ |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+| Axios | https://www.npmjs.com/package/axios |
+| React Icons |https://react-icons.github.io/react-icons/ |
+| Material ui Lab | https://www.npmjs.com/package/@material-ui/lab |
+| React Dom router |https://www.npmjs.com/package/react-router-dom |
+
