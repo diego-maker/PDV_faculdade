@@ -1,6 +1,6 @@
 <h2>Esse projeto é um simples PDV, utilizado para prova de desenvolvimento Web 6° semestre<h2>
   
-   ![hippo](https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif)
+   ![hippo](https://media.giphy.com/media/1C8bHHJturSx2/giphy.gif)
    
    Um pouquinho de React, javasCript, ReactStrap/Bootstrap... nada como rechear minha aplicação com tecnologias diferentes haha
    
