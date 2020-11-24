@@ -13,7 +13,7 @@
 
 # Algumas Dependências não citadas que pode-se utilizar posteriormente.
 
-| dependência | README |
+| Dependência | NPMs |
 | ------ | ------ |
 | material ui | https://material-ui.com/pt/ |
 | Axios | https://www.npmjs.com/package/axios |
