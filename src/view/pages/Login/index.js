@@ -61,4 +61,4 @@ export default function Login() {
 }
 
 
-//developed by Diego && victor
+//developed by Diego 

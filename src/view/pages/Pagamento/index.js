@@ -791,4 +791,4 @@ export default function Pagamento(props) {
     )
 }
 
-//developed by Diego && victor
+//developed by Diego 

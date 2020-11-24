@@ -258,4 +258,4 @@ export default function EspecificaProduto() {
     )
 }
 
-//developed by Diego && victor
+//developed by Diego 

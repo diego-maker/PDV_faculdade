@@ -564,4 +564,4 @@ export default function Venda() {
     )
 }
 
-//developed by Diego && victor
+//developed by Diego 

@@ -786,4 +786,4 @@ export default function ProdutoGenerica() {
     )
 }
 
-//developed by Diego && victor
+//developed by Diego 

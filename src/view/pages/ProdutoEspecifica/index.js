@@ -359,4 +359,4 @@ export default function ProdutoEspecifica() {
     )
 }
 
-//developed by Diego && victor
+//developed by Diego 
