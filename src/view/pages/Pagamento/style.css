@@ -1,0 +1,109 @@
+.cabecalho{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.conteudo1{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 10px;
+    
+}
+
+.itens-compra1{
+    height: 440px;
+    max-width: 1120px;
+    max-height: 300px;
+    left: 653px;
+    top: 436px;
+    border: 3px solid #c4c4c4;
+    border-radius: 10px;
+    overflow:auto;
+}
+
+
+
+.sub-total1{
+    padding-top: 8px ;
+    padding-bottom: 15px ;
+    width: 95%;
+    left: 137px;
+    top: 225px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background: linear-gradient(180deg, #E4E4E4 2.6%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #E4E4E4 99.99%, rgba(228, 228, 228, 0) 100%);
+    border-radius: 10px;
+}
+
+.botao-produtos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-item1{
+    display: inline-flex;
+    width: 100%;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-item1{
+    width: 100%;
+    height: 35px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+    border-radius: 8px;
+    border: none;
+}
+.input-final{
+    width: 100%;
+    height: 35px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+    border-radius: 8px;
+    border: none;
+}
+.MuiAutocomplete-popper li{
+  
+    background-color:  rgb(202, 202, 202);
+    
+ }
+ .conteudo-compras{
+     display: block;
+ }
+ .MuiAutocomplete-input {
+     border-radius: 2px;
+     border: 1px solid #ced4da;
+    border-top-color: rgb(206, 212, 218);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(206, 212, 218);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(206, 212, 218);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(206, 212, 218);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+ }

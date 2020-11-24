@@ -1,0 +1,37 @@
+
+.cabecalho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.status{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.link-nota{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.btn-cancelar{
+    margin-top: 20px;
+    margin-left: 12px;
+   
+}
+.btn-enviar{
+    margin-top: 20px;
+    margin-right: 12px;
+}
+
+.remove{
+    
+    background: transparent;
+    border: none;
+    font-size:0;
+}

@@ -1,0 +1,137 @@
+.remove{
+    
+    background: transparent;
+    border: none;
+    font-size:0;
+}
+.pagination{
+    margin-left: 23.5%;
+}
+.input-pesquisar{
+float: left;
+margin-right: 20px;
+margin-top: 7px;
+height: 30px;
+}
+
+.novo-produto{
+    margin-left: 6px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    background: #757575;
+    border-radius: 10px;
+}
+
+.form-botao{
+    display: inline-flex;
+
+}
+
+.paginacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination{
+    margin-left: 0;
+}
+
+.novo-produto svg{
+    margin-left: 8px;
+}
+
+.ajuste-botoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inativar-botao{
+    background: #f1c0bc;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin-left: 12px;    
+}
+.produtos-inativos-botao{
+    background: #4d6394;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    margin-left: 12px;  
+}
+
+form input{
+    
+    left: 905px;
+    top: 142px;
+    font-size: 18px;
+    background: #FFFFFF;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+}
+tr:nth-child(even) {
+    background-color: #e4e4e4;
+  }
+table{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+thead{
+    font-weight: bold;
+}
+
+table td.input{
+    width: 1%;
+}
+
+table td.id{
+    width: 5%;
+}
+
+table td.codigo{
+    width: 10%;
+}
+
+table td.descricao2{
+    width: 58%;
+}
+
+table td.preco{
+    width: 10%;
+}
+
+table td.unidade{
+    width: 5%;
+}
+
+table td.saldo{
+    width: 8%;
+}
+.descricao-clicando{
+    cursor: pointer;
+}
+.alinhar{
+
+    display: flex;
+       flex-direction: row;
+       justify-content: center;
+        align-items: center
+}
+

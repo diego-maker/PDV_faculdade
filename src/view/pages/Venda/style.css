@@ -1,0 +1,180 @@
+
+
+.descricao-clicando2{
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+}
+
+.conteudo{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+   
+}
+.invalid-feedback{
+    font-size: 15px;
+}
+.modal55{
+    overflow: hidden
+}
+.imagem-soft{
+    max-width: 100%;
+    opacity: 38%;
+}
+.descricao{
+    justify-content: center;
+    align-items: center;
+    padding-top: 8px ;
+    padding-bottom: 15px ;
+    width: 95%;
+    left: 137px;
+    top: 225px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background: linear-gradient(180deg, #E4E4E4 2.6%, rgb(155, 195, 255) 100%), linear-gradient(180deg, #E4E4E4 99.99%, rgba(60, 60, 60,0) 100%);
+    border-radius: 10px;
+}
+
+.item{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divisao{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.label-item{
+    display: inline-flex;
+    width: 100%;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+}
+.tiraChao{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.input-item{
+   
+    width: 100%;
+    height: 35px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 35px;
+    text-align: left;
+    padding-left: 20px;
+    color: #000000;
+    border-radius: 8px;
+    border: none;
+}
+
+.input-item-2{
+    
+    width: 100%;
+    height: 35px;
+    padding-right: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 35px;
+    text-align: right;
+    color: #000000;
+    border-radius: 8px;
+    border: none;
+}
+
+.input-item-3{
+    
+    width: 100%;
+    height: 35px;
+    padding-right: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 35px;
+    text-align: left;
+    color: #000000;
+    border-radius: 8px;
+    border: none;
+}
+.MuiAutocomplete-popper li{
+  
+   background-color:  rgb(202, 202, 202);
+   
+}
+.itens-compra{
+ 
+    width: 80%;
+    height: 210px;
+    
+    margin-left:50px ;
+    top: 436px;
+   
+    border-radius: 10px;
+   
+        overflow:auto;
+}
+
+.conteudo-corpo{
+    margin: 32px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+}
+
+.conteudo-compra{
+    display: flex;
+}
+
+.sub-total{
+    padding-top: 8px ;
+    padding-bottom: 15px ;
+    width: 95%;
+    left: 137px;
+    top: 225px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background: linear-gradient(180deg, #E4E4E4 2.6%, rgb(155, 195, 255) 100%), linear-gradient(180deg, #E4E4E4 99.99%, rgba(60, 60, 60,0) 100%);
+    border-radius: 10px;
+  
+}
+
+.descricao-compra{
+    margin-top: 4px;
+    width: 590px;
+    height: 440px;
+    max-width: 590px;
+    max-height: 70px;
+    left: 653px;
+    top: 436px;
+    border: 3px solid #c4c4c4;
+    border-radius: 10px;
+ 
+}
+
+.divisao-conteudo{
+    justify-content: start;
+}
+
+.botao-produtos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao-prosseguir{
+    margin-right: 180px;
+}
+
+.remove{
+    
+    background: transparent;
+    border: none;
+    font-size:0;
+}
+

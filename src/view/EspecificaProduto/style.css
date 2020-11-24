@@ -1,0 +1,78 @@
+.remove{
+    
+    background: transparent;
+    border: none;
+    font-size:0;
+}
+
+.jumbotron{
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+tr:nth-child(even) {
+    background-color: #e4e4e4;
+  }
+
+
+
+.descricao-clicando{
+    cursor: pointer;
+}
+
+.clicando{
+    cursor: pointer;
+}
+
+.especificando-bac{
+    padding: 10px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #E4E4E4 2.6%, rgba(180,180,180) 100%), linear-gradient(180deg, #E4E4E4 99.99%, rgba(60, 60, 60,0) 100%);
+}
+
+label{
+    font-size: 13px;
+}
+    
+li{
+    font-size: 13px;
+}
+
+.principal-tab{
+    background-color: #c7c8ca;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.tab-secundaria{
+    cursor: pointer;
+    background-color: #b5c6ec;
+}
+
+a{
+    color: rgb(0, 0, 0);
+}
+.input-grupo{
+    background-color:  #eef0d0; ;
+}
+
+.jumbo{
+    
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #a2a5af;
+    background: linear-gradient(180deg, #E4E4E4 2.6%, rgba(180,180,180) 100%), linear-gradient(180deg, #E4E4E4 99.99%, rgba(60, 60, 60,0) 100%);
+}
+
+
+table td.rzSocial{
+    width: 300px;
+}
+
