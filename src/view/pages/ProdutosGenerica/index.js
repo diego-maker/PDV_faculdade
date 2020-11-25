@@ -459,7 +459,7 @@ export default function ProdutoGenerica() {
             <Jumbotron id="topo">
                 <div className="container-fluid mt-0">
                     <div className="content mt-0">
-                        <Row className="px-2">
+                        <Row className="px-2 botaoo">
                             <div className="mr-auto ajuste-botoes">
                                 <Link
                                     to="/produtos/new"

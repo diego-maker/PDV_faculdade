@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style.css'
 import Menu from '../../componets/menu'
-import { Jumbotron, Modal, ModalHeader, ModalBody, Row, Col, Table} from 'reactstrap';
+import { Jumbotron, Modal, ModalHeader, ModalBody, Row, Col, Table } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -14,8 +14,15 @@ export default function Venda() {
     useEffect(() => {
         localStorage.setItem("Item", 0)
         coletarDados();
-
+        focarI();
     }, [console.clear()])
+
+    async function focarI() {
+        await toggle3(true);
+        let element = document.getElementsByClassName("input-item-pesquisar")[0];
+        await element.lastElementChild.focus();
+    }
+
     async function coletarDados() { //coletando os dados da API
 
         let dados = await axios(`http://18.189.30.2:5000/v1/Produto`, {
@@ -37,7 +44,7 @@ export default function Venda() {
     const [somaSe, setSomaSe] = useState('');
     const [descricaoItem, setDescricaoItem] = useState('');
     const [modal, setModal] = useState(false);
-    const [modal3, setModal3] = useState(true);
+    const [modal3, setModal3] = useState(false);
     const [cpf, setCpf] = useState('');
     const [descricao, setDescricao] = useState('');
     const [qtd, setQtd] = useState('');
@@ -237,7 +244,7 @@ export default function Venda() {
                 setOptions('');
                 qtdPadrao = 1;
                 setarTabela();
-                
+
             } else {
                 setOptions('');
                 setarTabela();
@@ -283,8 +290,8 @@ export default function Venda() {
         debugger
         // FUNÇÃO DE EVENTOS NO MODAL PESQUISAR 
         if (event.keyCode === 27) {
-           return toggle3(false);
-            
+            return toggle3(false);
+
         }
         if (event.keyCode === 13) {
             if (descricao === '') {
@@ -314,7 +321,7 @@ export default function Venda() {
     async function closeCpf(event) {
         //FUNÇÃO DE EVENTO PARA FECHAR O MODAL DO CPF
 
-        
+
         if (event.keyCode === 13) {
 
             if (cpf === "") {
@@ -362,12 +369,6 @@ export default function Venda() {
 
     }
 
-    function contarDigitosCfop(){
-        debugger
-        if(cpf.length > 12){
-            return setCpf(cpf.substring(0, cpf.length - 1));
-        }
-    }
     async function limparDado(e) {
         debugger
         if (window.confirm("Cancelar item?")) {
@@ -380,8 +381,8 @@ export default function Venda() {
             setVendas([...vendas.slice(0, index), ...vendas.slice(index + 1)]);
             setOptions('');
             await toggle3(true);
-             let element = document.getElementsByClassName("input-item-pesquisar")[0];
-           return  await element.lastElementChild.focus();
+            let element = document.getElementsByClassName("input-item-pesquisar")[0];
+            return await element.lastElementChild.focus();
         }
 
 
@@ -452,36 +453,36 @@ export default function Venda() {
                     </div>
                     <div className="mb-2 itens-compra">
 
-                                <Table className=" responsive={-sm|-md|-lg|-xl}">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Descrição</th>
-                                            <th>Quantidade</th>
-                                            <th>Valor Unitario</th>
-                                            <th>Valor Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {vendas.map(index => (
-                                            <tr key={index.Id}>
-                                                <th>{index.id} <FiX className="descricao-clicando2" onClick={limparDado.bind(this, index)} size={18} /></th>
-                                                <td  >{index.descricao}</td>
-                                                <td>{index.qtd}</td>
-                                                <td>{index.valorUnt}</td>
-                                                <td> {index.valor}  </td>
-                                            </tr>
-                                        ))}
+                        <Table className=" responsive={-sm|-md|-lg|-xl}">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Descrição</th>
+                                    <th>Quantidade</th>
+                                    <th>Valor Unitario</th>
+                                    <th>Valor Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {vendas.map(index => (
+                                    <tr key={index.Id}>
+                                        <th>{index.id} <FiX className="descricao-clicando2" onClick={limparDado.bind(this, index)} size={18} /></th>
+                                        <td  >{index.descricao}</td>
+                                        <td>{index.qtd}</td>
+                                        <td>{index.valorUnt}</td>
+                                        <td> {index.valor}  </td>
+                                    </tr>
+                                ))}
 
 
-                                    </tbody>
-                                </Table>
+                            </tbody>
+                        </Table>
 
-                            </div>
+                    </div>
                     <div className="conteudo-compra">
 
                         <div className=" mt-auto ml-5">
-                           
+
                             <div className="sub-total">
                                 <form onSubmit={handlerFormDescricao}>
                                     <label className="label-item">SUB TOTAL</label>
@@ -492,9 +493,9 @@ export default function Venda() {
                                 </form>
                             </div>
                         </div>
-                        <div className=" mr-5">
+                        <div className="mt-2 mr-5">
 
-                            
+
                             <div className="descricao-compra">
                                 <input
                                     className="input-item text-xl-left mt-3"
@@ -509,10 +510,10 @@ export default function Venda() {
                 </div>
 
                 <div>
-                    
+
                     <Modal autoFocus={false} isOpen={modal3} toggle={toggle3} backdrop={false} keyboard={false}>
                         <ModalHeader toggle={toggle3}>Proucurar Item </ModalHeader>
-                        
+
                         <ModalBody>
 
                             <Row>
@@ -548,13 +549,13 @@ export default function Venda() {
                             </Row>
 
                         </ModalBody>
-                        
-                            <Row className="p-3">
 
-                                <Col className="font-weight-bold" sm={6}>Setar item (ENTER)</Col>
-                                <Col className="font-weight-bold" sm={6}>Pagamento (F9)</Col>
-                            </Row>
-                        
+                        <Row className="p-3">
+
+                            <Col className="font-weight-bold" sm={6}>Setar item (ENTER)</Col>
+                            <Col className="font-weight-bold" sm={6}>Pagamento (F9)</Col>
+                        </Row>
+
 
                     </Modal>
                 </div>
