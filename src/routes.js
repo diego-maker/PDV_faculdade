@@ -7,6 +7,7 @@ const ProdutosGenerica = lazy(() => import('./view/pages/ProdutosGenerica'));
 const ProdutosEspecifica = lazy(() => import('./view/pages/ProdutoEspecifica'));
 const Venda = lazy(() => import('./view/pages/Venda'));
 const Pagamento = lazy(() => import('./view/pages/Pagamento'));
+const Cadastro = lazy(() => import('./view/pages/cadastro'));
 const EspecificaProduto = lazy (() => import ('./view/EspecificaProduto'));
 
 
@@ -18,6 +19,7 @@ export default function Routes() {
                 <Switch>
                     <Route path="/" exact component={props => <Login {...props} />} />
                     <Route path="/produtos" exact component={props => <ProdutosGenerica {...props} />} />
+                    <Route path="/cadastramento" exact component={props => <Cadastro {...props} />} />
                     <Route path="/produtos/:id" exact component={props => <ProdutosEspecifica {...props} />} />
                     <Route path="/venda" exact component={props => <Venda {...props} />} />
                     <Route path="/pagamento" exact component={props => <Pagamento {...props} />} />

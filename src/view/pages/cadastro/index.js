@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Col } from 'reactstrap';
 import './style.css'
-
+import axios from 'axios'
 import image from '../../assets/Campos.png'
 
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
 
@@ -13,6 +13,7 @@ export default function Login() {
     //#region constantes e funções
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [nome, setNome] = useState('');
     const history = useHistory();
 
 
@@ -20,10 +21,26 @@ export default function Login() {
 
         e.preventDefault();
         
-        if(email === "adm@adm" && senha === "adm"){
-        return  history.push('/Produtos');
+        if(email === "" && senha === "" && nome === ""){
+        return alert("deve-se preencher todos os campos para realizar um novo cadastro!");
         }
-        return alert("senha incorreta");
+       
+       let dados = {
+            "nomeU": nome,
+            "emailU": email,
+            "senhaU": senha       
+       } 
+       debugger
+
+    let  req = await axios(`http://localhost:4000/usuario`, {
+        method: 'POST',
+        data: dados
+    });
+
+    if(req.data.message === "usuario cadastrado com sucesso!"){
+        alert("novo usuario cadastrado!");
+        return history.push('/');
+    }
         
     }
 
@@ -34,10 +51,17 @@ export default function Login() {
             <Col sm={12} md={8} lg={6} className="form"    >
               
                 <form onSubmit={handlerSubmitLogin}>
-                    <label className="label"  >Email</label>
+                    <label className="label"  >Nome</label>
                     <input
                         className="input"
                         autoFocus
+                        type="text"
+                        value={nome}
+                        onChange={e => setNome(e.target.value)}
+                        placeholder="Digite seu Nome..." />
+                        <label className="label"  >Email</label>
+                    <input
+                        className="input"
                         type="email"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
@@ -48,9 +72,9 @@ export default function Login() {
                         type="password"
                         value={senha}
                         onChange={e => setSenha(e.target.value)}
-                        placeholder="Digite sua Senha..." />
-                    <Button type="submit" className="mb-3 botao">Entrar</Button>
-                    <Link to="/cadastramento" className="usuario "> Cadastrar novo usuário</Link>
+                        placeholder="Digite uma Senha..." />
+                    <Button type="submit" className="botao">Cadastrar</Button>
+                  
                 </form>
             </Col>
             <Col sm={12} md={8} lg={6}   >
