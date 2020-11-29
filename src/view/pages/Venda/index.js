@@ -124,7 +124,7 @@ export default function Venda() {
             await setValor(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(soma)));
             await setSomaSe(Number(somaSe) + Number(soma))
             await setSubTotal(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(somaSe) + Number(soma)));
-            await setSomaSe(Number(somaSe) + Number(soma))
+    
             await setSubTotal(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(somaSe) + Number(soma)));
             await localStorage.setItem('subTotal', Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(somaSe) + Number(soma)));
             await setVendas([...vendas,
@@ -209,10 +209,12 @@ export default function Venda() {
 
         if (event.keyCode === 13) {
 
-            
+            debugger
             if (valorUnt === '' || valor === '') {
                 setQtd('');
-
+              await  toggle3(true);
+              let element = document.getElementsByClassName("input-item-pesquisar")[0];
+              await element.lastElementChild.focus();
                 return
             }
             if (qtd === '') {
@@ -350,17 +352,21 @@ export default function Venda() {
     async function limparDado(e) {
         
         if (window.confirm("Cancelar item?")) {
+            debugger
             let sub = subTotal.substring(3).replace(',', '.');
             let itemValor = e.valor.substring(3).replace(',', '.');
             sub = sub - itemValor;
             setDescricaoItem('');
             setSubTotal(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(sub)));
+            setSomaSe(sub);
             let index = vendas.findIndex(x => x.id === e.id);
             setVendas([...vendas.slice(0, index), ...vendas.slice(index + 1)]);
             setOptions('');
             await toggle3(true);
             let element = document.getElementsByClassName("input-item-pesquisar")[0];
+            console.log(somaSe);
             return await element.lastElementChild.focus();
+            
         }
 
 

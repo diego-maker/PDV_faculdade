@@ -74,6 +74,7 @@ export default function ProdutoGenerica() {
     
    
     async function handlerIsChecked(x) {
+        debugger
         const filter = dados.findIndex(item => item.id === x.id)
         const verifica = dados[filter];
 
@@ -158,6 +159,7 @@ export default function ProdutoGenerica() {
                 "unidade": x.obs,
                 "estoqueDisponivel": x.estoque,
                 "id": x._id,
+                "ischecked" : "false" ,
                 "descricao": x.nomeProduto,
                 "UsuarioId": localStorage.getItem('UsuarioId')
             })
@@ -181,45 +183,12 @@ export default function ProdutoGenerica() {
     }
 
     async function atualizar(produto) {// fazendo a atualiazação caso for inativado o produto
-        let get = await axios(`http://18.189.30.2:5000/v1/Produto/${produto.id}`, {
-            method: 'GET'
+        debugger
+        let get = await axios(`http://localhost:4000/produto/DELETE/${produto.id}`, {
+            method: 'DELETE'
         })
-        get = get.data;
-        if (get.undefined) {
-            return console.log("Erro ao executar a operação!")
-        }
-        let arrumarDados = {
-            "Id": get.id,
-            "Descricao": get.descricao,
-            "CodigoInterno": get.codigoInterno,
-            "CodigoDeBarras": get.codigoDeBarras,
-            "Status": "I",
-            "ValorVenda": get.valorVenda,
-            "Custo": get.custo,
-            "EstoqueDisponivel": get.estoqueDisponivel,
-            "Observação": get.observação,
-            "Origem": get.origem,
-            "Unidade": get.unidade,
-            "Ncm": get.ncm,
-            "Cest": get.cest,
-            "CFOP": get.cfop,
-            "CstCofins": get.cstCofins,
-            "CstPis": get.cstPis,
-            "Icms": get.icms,
-            "AliquotaCofins": get.aliquotaCofins,
-            "AliquotaPis": get.aliquotaPis,
-            "UsuarioId": Number(localStorage.getItem('UsuarioId')),
-        }
-        let response = ""
-        response = await axios(`http://18.189.30.2:5000/v1/Produto`, {
-            method: 'PUT',
-            data: arrumarDados
-        });
-        if (response === null) {
-            return
-        }
-
-        let dados = await axios(`http://18.189.30.2:5000/v1/Produto`, {
+     
+        let dados = await axios(`http://localhost:4000/produto`, {
             method: 'GET'
         })
 
@@ -229,12 +198,12 @@ export default function ProdutoGenerica() {
             dados.data.map(x => ({
 
                 "codigoInterno": x.codigoInterno,
-                "valorVenda": x.valorVenda,
-                "unidade": x.unidade,
-                "estoqueDisponivel": x.estoqueDisponivel,
-                "id": x.id,
-                "ischecked": "false",
-                "descricao": x.descricao,
+                "valorVenda": x.valor,
+                "unidade": x.obs,
+                "estoqueDisponivel": x.estoque,
+                "id": x._id,
+                "ischecked" : "false" ,
+                "descricao": x.nomeProduto,
                 "UsuarioId": localStorage.getItem('UsuarioId')
             })
 
@@ -468,7 +437,7 @@ export default function ProdutoGenerica() {
                                 <FiPlus size={18} />
                                 </Link>
                                 <Button className="btn inativar-botao" onClick={Inativar}>
-                                   Inativar Produto
+                                   Deletar Produto
                                 <FiX size={18} />
                                 </Button>
                             </div>
