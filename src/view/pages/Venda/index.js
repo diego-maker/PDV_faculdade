@@ -25,13 +25,13 @@ export default function Venda() {
 
     async function coletarDados() { //coletando os dados da API
 
-        let dados = await axios(`http://18.189.30.2:5000/v1/Produto`, {
+        let dados = await axios(`http://localhost:4000/produto`, {
             method: 'GET'
         })
         let obterdados = []
         obterdados = [
             ...obterdados,
-            dados.data.map(x => (x.descricao))
+            dados.data.map(x => (x.nomeProduto))
         ]
 
         setDados1(obterdados[0]);
@@ -59,91 +59,68 @@ export default function Venda() {
     let qtdPadrao = 0;
 
     async function obterValor() { //FUNÇÃO PARA OBTER OS VALORES 
+        let produtoBusca = descricao
+        let dados = await axios(`http://localhost:4000/${produtoBusca}`, {
+            method: 'GET'
+        })
+        
+        let obterdados = []
+        obterdados = [
+            ...obterdados,
+            dados.data.map(x => ({
 
-        let responseID = await axios(`http://18.189.30.2:5000/v1/Parametros/${69}`);
+                "codigoInterno": x.codigoInterno,
+                "valorVenda": x.valor,
+                "unidade": x.obs,
+                "estoqueDisponivel": x.estoque,
+                "id": x._id,
+                "descricao": x.nomeProduto
+            })
 
-        if (responseID.data[0].parametro === "Código Interno") {
+            )
+        ]
 
-            try {
-
-
-                let dados2 = await axios(`http://18.189.30.2:5000/v1/ListarProdutoCodigoInterno/${descricao}`, {
-                    method: 'GET'
-                });
-
-
-                let soma = Number(dados2.data[0].valorVenda);
-                soma = Number(qtd) * soma;
-                await setDescricao(dados2.data[0].descricao)
-                await setValorUnt(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(dados2.data[0].valorVenda)));
-                await setValor(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(soma)));
-            } catch {
-
-            }
-            return
-        }
-
-        else if (responseID.data[0].parametro === "Código EAN13") {
-
-            try {
-
-
-                let dados2 = await axios(`http://18.189.30.2:5000/v1/ListarProdutoEan/${descricao}`, {
-                    method: 'GET'
-                });
-
-                let soma = Number(dados2.data[0].valorVenda);
-                soma = Number(qtd) * soma;
-                await setDescricao(dados2.data[0].descricao)
-                await setValorUnt(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(dados2.data[0].valorVenda)));
-                await setValor(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(soma)));
-            } catch {
-
-            }
-            return
-        }
-
-        let response = await fetch(`http://18.189.30.2:5000/v1/ListarProdutoDescricao/${descricao.toUpperCase()}`);
-        response = await response.json();
-
-        if (response[0] === undefined) {
-
-            await toggle3(true);
-            let element = document.getElementsByClassName("input-item-pesquisar")[0];
-            try {
-                element.focus();
-            } catch {
-
-            }
-
-
-            await setDescricao('');
-            return
-        }
-
-        let soma = Number(response[0].valorVenda);
-        soma = Number(qtd) * soma;
-        await setDescricao(response[0].descricao)
-        await setValorUnt(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(response[0].valorVenda)));
-        await setValor(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(soma)));
+        await setDescricao(obterdados[0][0].descricao)
+        await setValorUnt(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(obterdados[0][0].valorVenda)));
+        await setValor(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(obterdados[0][0].valorVenda)));
 
     }
 
 
 
     async function setarTabela() { // FUNÇÃO PARA SETAR OS VALORES NA TABELA DE ITENS DE VENDAS
+       debugger
         let contar1 = 1;
         contar1 = Number(contar1 + contar);
         await setContar(contar1);
         await localStorage.setItem('Item', contar1);
 
-        try {
-            let response = await fetch(`http://18.189.30.2:5000/v1/ListarProdutoDescricao/${descricao}`);
-            response = await response.json();
-            let soma = Number(response[0].valorVenda);
-            qtdPadrao = qtdPadrao + Number(qtd);
-            soma = Number(qtdPadrao) * soma;
-            await setValorUnt(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(response[0].valorVenda)));
+   
+            let obterdados = await axios(`http://localhost:4000/${descricao}`, {
+                method: 'GET'
+            })
+            let response = []
+            response = [
+                ...response,
+                obterdados.data.map(x => ({
+    
+                    "codigoInterno": x.codigoInterno,
+                    "valorVenda": x.valor,
+                    "unidade": x.obs,
+                    "estoqueDisponivel": x.estoque,
+                    "id": x._id,
+                    "descricao": x.nomeProduto
+                })
+    
+                )
+            ]
+            
+            
+            let soma = await Number(response[0][0].valorVenda);
+            
+            qtdPadrao = await qtdPadrao + Number(qtd);
+            soma = await Number(qtdPadrao) * soma;
+            await setValorUnt(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(response[0][0].valorVenda)));
             await setValor(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(soma)));
             await setSomaSe(Number(somaSe) + Number(soma))
             await setSubTotal(Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(somaSe) + Number(soma)));
@@ -152,10 +129,10 @@ export default function Venda() {
             await localStorage.setItem('subTotal', Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(somaSe) + Number(soma)));
             await setVendas([...vendas,
             {
-                "id": response[0].id,
-                "descricao": response[0].descricao,
+                "id": response[0][0].id,
+                "descricao": response[0][0].descricao,
                 "qtd": qtdPadrao,
-                "valorUnt": Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(response[0].valorVenda)),
+                "valorUnt": Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(response[0][0].valorVenda)),
                 "valor": Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(Number(soma))
             }]
             );
@@ -165,12 +142,12 @@ export default function Venda() {
             setValorUnt('');
             if (qtd === "") {
 
-                return setDescricaoItem(`1    x    ${response[0].descricao}  ${Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(response[0].valorVenda)}`)
+                return setDescricaoItem(`1    x    ${response[0][0].descricao}  ${Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(response[0][0].valorVenda)}`)
             }
-            await setDescricaoItem(`${qtd}    x    ${response[0].descricao}  ${Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(response[0].valorVenda)}`)
+            await setDescricaoItem(`${qtd}    x    ${response[0][0].descricao}  ${Intl.NumberFormat('pt-br', { currency: 'BRL', style: 'currency' }).format(response[0][0].valorVenda)}`)
 
-        }
-        catch { }
+           await toggle3(true);
+            setOptions('');
     }
 
     async function handlerFormDescricao(e) {
@@ -232,9 +209,7 @@ export default function Venda() {
 
         if (event.keyCode === 13) {
 
-            await toggle3(true);
-            let element = document.getElementsByClassName("input-item-pesquisar")[0];
-            await element.lastElementChild.focus();
+            
             if (valorUnt === '' || valor === '') {
                 setQtd('');
 
@@ -243,12 +218,15 @@ export default function Venda() {
             if (qtd === '') {
                 setOptions('');
                 qtdPadrao = 1;
-                setarTabela();
+              await  setarTabela();
+              toggle3(true);
 
             } else {
                 setOptions('');
-                setarTabela();
-
+               await setarTabela();
+               await toggle3(true);
+               let element = document.getElementsByClassName("input-item-pesquisar")[0];
+               await element.lastElementChild.focus();
                 return;
 
             }
@@ -287,7 +265,7 @@ export default function Venda() {
 
 
     async function pesquisar(event) {
-        debugger
+        
         // FUNÇÃO DE EVENTOS NO MODAL PESQUISAR 
         if (event.keyCode === 27) {
             return toggle3(false);
@@ -304,12 +282,12 @@ export default function Venda() {
 
         }
         if (event.keyCode === 120) {
-
+                debugger
             if (subTotal === '') {
                 return alert('Não existe compra para realizar pagamentos!!')
             }
 
-            history.push('/pagamento', vendas);
+          return  history.push('/pagamento', vendas);
 
         }
         if (event.keyCode === 119) {
@@ -370,7 +348,7 @@ export default function Venda() {
     }
 
     async function limparDado(e) {
-        debugger
+        
         if (window.confirm("Cancelar item?")) {
             let sub = subTotal.substring(3).replace(',', '.');
             let itemValor = e.valor.substring(3).replace(',', '.');
@@ -530,8 +508,8 @@ export default function Venda() {
                                         }}
                                         inputValue={descricao}
                                         onInputChange={(event, newInputValue) => {
-                                            setDescricao(newInputValue.toUpperCase());
-                                            bucarDados(newInputValue.toUpperCase());
+                                            setDescricao(newInputValue);
+                                            bucarDados(newInputValue);
                                         }}
                                         onKeyUp={pesquisar}
                                         renderInput={(params) => (

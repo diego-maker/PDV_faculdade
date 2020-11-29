@@ -49,17 +49,11 @@ export default function Pagamento(props) {
     }
 
     async function coletarDados(){ // Aki eu vou implementar um get da minha API, para retornar as formas de pagamento disponiveis...
-        
-        let dados = await axios(`http://18.189.30.2:5000/v1/FormaPagamento`, {
-            method: 'GET'
-        })
+        debugger
         let obterdados = []
-        obterdados = [
-            ...obterdados,
-            dados.data.map(x => (x.meioPagamento))
-        ]
+        obterdados = [ "Cartão de crédito" , "Cartão de débito" , "Dinheiro" , "Boleto Bancário" , "Cheque"]
 
-        setDados1(obterdados[0]);
+        setDados1(obterdados);
     }
 
     async function criarPedido() { //Cria um pedido nota, não funciona no momento....

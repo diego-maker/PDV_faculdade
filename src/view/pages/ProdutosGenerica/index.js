@@ -142,8 +142,9 @@ export default function ProdutoGenerica() {
 
 
     async function coletarDados() { //coletando os dados da API
+        debugger
 
-        let dados = await axios(`http://18.189.30.2:5000/v1/Produto`, {
+        let dados = await axios(`http://localhost:4000/produto`, {
             method: 'GET'
         })
 
@@ -153,12 +154,11 @@ export default function ProdutoGenerica() {
             dados.data.map(x => ({
 
                 "codigoInterno": x.codigoInterno,
-                "valorVenda": x.valorVenda,
-                "unidade": x.unidade,
-                "estoqueDisponivel": x.estoqueDisponivel,
-                "id": x.id,
-                "ischecked": "false",
-                "descricao": x.descricao,
+                "valorVenda": x.valor,
+                "unidade": x.obs,
+                "estoqueDisponivel": x.estoque,
+                "id": x._id,
+                "descricao": x.nomeProduto,
                 "UsuarioId": localStorage.getItem('UsuarioId')
             })
 
