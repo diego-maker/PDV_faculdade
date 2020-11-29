@@ -129,35 +129,30 @@ export default function ProdutoEspecifica() {
 
     async function SalvarDados() {  //MANDAR OS DADOS SALVOS PARA A 'api'
 
+        let translateT = custo.substring(3).replace(',', '.');;
+        let translateTA =  valorVenda.substring(3).replace(',', '.');
+        console.log(translateT, translateTA)
         let dados = '';
         let req = '';
+
         dados = {
-            "Descricao": nomeProduto.toUpperCase(),
-            "CodigoInterno": codigoInterno,
-            "CodigoDeBarras": ean,
-            "status": status,
-            "ValorVenda": Number(numberVenda),
-            "Custo": Number(numberCusto),
-            "EstoqueDisponivel": Number(estoque),
-            "Observação": observacoes,
-            "Origem": Number(origemSalvar.substring(0, 1)),
-            "Unidade": unidade,
-            "Ncm": ncm,
-            "Cest": cest,
-            "CFOP": cfop,
-            "CstCofins": cstCofins,
-            "CstPis": cstPis,
-            "Icms": cstIcms,
-            "AliquotaCofins": aliquotaCofins,
-            "AliquotaPis": aliquotaPis,
-            "UsuarioId": Number(localStorage.getItem('UsuarioId')),
+            "produtoNome": nomeProduto ,
+            "valor": Number(translateTA),
+            "qtd": Number(estoque),
+            "codigoI" : codigoInterno,
+            "estq": Number(estoque),
+            "cust": Number(translateT),
+            "grupo": nomeProduto,
+            "obs": observacoes,
+        "ativo": "teste"	
         }
+        
         try {
-            req = await axios(`http://18.189.30.2:5000/v1/Produto`, {
+            req = await axios(`http://localhost:4000/produto`, {
                 method: 'POST',
                 data: dados
             });
-
+            debugger
             if (req.data.mensagem !== "Produto cadastrado com sucesso!") {
                 dados = {
                     "Descricao": nomeProduto.toUpperCase(),
