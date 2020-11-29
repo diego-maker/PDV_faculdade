@@ -3,7 +3,7 @@ import { Button, Col } from 'reactstrap';
 import './style.css'
 
 import image from '../../assets/Campos.png'
-
+import axios from 'axios'
 import { Link, useHistory } from 'react-router-dom'
 
 
@@ -19,12 +19,19 @@ export default function Login() {
     async function handlerSubmitLogin(e) {// eu sei não validei pela minha API... tambem cara 500 PROVAS PRA FAZER SEM TEMPO IRMAO
 
         e.preventDefault();
-        
+        if(email=== ''){return}
         if(email === "adm@adm" && senha === "adm"){
         return  history.push('/Produtos');
         }
-        return alert("senha incorreta");
-        
+        debugger
+     let  req = await axios(`http://localhost:4000/usuario${senha}`, {
+            method: 'GET'
+        });
+        if (req.statusText === "OK") {
+            return history.push('/produtos');
+        }
+
+        return alert('usuario ou senha incorretos')
     }
 
     //#endregion
