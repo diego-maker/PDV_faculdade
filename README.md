@@ -2,7 +2,7 @@
   
    ![hippo](https://media.giphy.com/media/1C8bHHJturSx2/giphy.gif)
    
-   Um pouquinho de React, javasCript, ReactStrap/Bootstrap... nada como rechear minha aplicação com tecnologias diferentes haha
+   Um pouquinho de React, javaScript, ReactStrap/Bootstrap... nada como rechear minha aplicação com tecnologias diferentes haha
    
 # Eu utilizei a biblioteca do React para a visualização
   - Hooks
