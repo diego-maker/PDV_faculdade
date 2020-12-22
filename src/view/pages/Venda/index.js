@@ -548,5 +548,5 @@ export default function Venda() {
         </>
     )
 }
-
+// att???? mudar algumas coisas referentes a nova ideia que tivemos eu e thiago
 //developed by Diego 
